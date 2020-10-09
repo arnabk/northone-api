@@ -1,0 +1,58 @@
+{
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/standard",
+    "prettier/@typescript-eslint"
+  ],
+  "plugins": ["prettier", "@typescript-eslint", "import"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": 9,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true
+    }
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  },
+  "rules": {
+    "no-console": "error",
+    "no-nested-ternary": "error",
+    "eqeqeq": "error",
+    "curly": "error",
+    "no-else-return": "error",
+    "comma-dangle": ["error", "always-multiline"],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.test.ts"
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "prefer-destructuring": "off",
+    "object-shorthand": "off",
+    "prettier/prettier": "error",
+    "@typescript-eslint/interface-name-prefix": ["off"],
+    "@typescript-eslint/no-use-before-define": ["off"],
+    "@typescript-eslint/explicit-function-return-type": ["off"],
+    "@typescript-eslint/no-explicit-any": ["off"],
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "@typescript-eslint/member-delimiter-style": ["off"]
+  },
+  "ignorePatterns": [
+    "jest.config.js"
+  ]
+}

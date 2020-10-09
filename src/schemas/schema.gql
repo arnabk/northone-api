@@ -1,0 +1,38 @@
+"ISO-8601 Date and Time as number (millis)"
+scalar DateTime
+
+"Unique ID"
+scalar ID
+
+"Pagination PageInfo"
+type PageInfo {
+  "Indicates if we have more pages forward"
+  hasNextPage: Boolean!
+  "Indicates if we have more pages backward"
+  hasPreviousPage: Boolean!
+}
+
+"Ordering"
+enum Ordering {
+  "ASC"
+  ASC
+  "DESC"
+  DESC
+}
+
+"The Query type represents all of the entry points into the API for fetch request"
+type Query {
+  "[No resolver] This is just a placeholder for base Query type. Do not use"
+  base: Boolean
+}
+
+"The mutation type represent all of the entry point into the API for update requests"
+type Mutation {
+  "[No resolver] This is just a placeholder for base Mutation type. Do not use"
+  base: Boolean
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}

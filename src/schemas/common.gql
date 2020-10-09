@@ -1,0 +1,33 @@
+type Task {
+  id: ID!
+  user: String!
+  email: String!
+  title: String!
+  description: String!
+  "Due date in ISO format"
+  dueDate: DateTime!
+  "List of categories"
+  category: [String]
+  # "List of attachment Ids"
+  # fileId: [String]
+  status: Status!
+}
+
+type SubTask {
+  id: ID!
+  taskId: ID!
+  title: String!
+  description: String!
+  "Due date in ISO format"
+  dueDate: DateTime!
+  # "List of attachment Ids"
+  # fileId: [String]
+  status: Status!
+}
+
+enum Status {
+  Open
+  InProgress
+  Blocked
+  Done
+}

@@ -1,0 +1,38 @@
+enum SubTaskSearchField {
+  title
+  description
+  status
+  dueDate
+}
+
+input SubTaskSortRequest {
+  field: SubTaskSearchField
+  direction: Ordering
+}
+
+input SubTaskSearchCriteria {
+  field: SubTaskSearchField
+  "set comma separated values for arraylist"
+  value: String
+}
+
+input SubTaskSearchRequest {
+  criteria: [SubTaskSearchCriteria]
+  sort: SubTaskSortRequest
+  page: Int
+  size: Int
+}
+
+input SubTaskTotalSearchRequest {
+  criteria: [SubTaskSearchCriteria]
+}
+
+type SubTaskResponse {
+  task: [SubTask]
+  pageInfo: PageInfo!
+}
+
+extend type Query {
+  listSubTask(request: SubTaskSearchRequest): SubTaskResponse
+  totalSubTask(request: SubTaskTotalSearchRequest): Int
+}

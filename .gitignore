@@ -1,0 +1,15 @@
+.idea
+.vscode
+build
+node_modules
+coverage
+.env
+__generated__
+artillery-report.*
+reports
+.vscode
+*.terraform
+*.tfvars
+*.tfstate.*
+*.tfstate
+*.log

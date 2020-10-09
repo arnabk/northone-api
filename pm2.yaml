@@ -1,0 +1,4 @@
+apps:
+  - script   : ./src/index.js
+    name     : 'northone-api'
+    instances: 1

@@ -1,0 +1,7 @@
+input RemoveSubTaskRequest {
+  id: ID!
+}
+
+extend type Mutation {
+  removeSubTask(request: RemoveSubTaskRequest): Boolean
+}

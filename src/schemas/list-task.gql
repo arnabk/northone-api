@@ -1,0 +1,39 @@
+enum TaskSearchField {
+  title
+  description
+  status
+  dueDate
+  category
+}
+
+input TaskSortRequest {
+  field: TaskSearchField
+  direction: Ordering
+}
+
+input TaskSearchCriteria {
+  field: TaskSearchField
+  "set comma separated values for arraylist"
+  value: String
+}
+
+input TaskSearchRequest {
+  criteria: [TaskSearchCriteria]
+  sort: TaskSortRequest
+  page: Int
+  size: Int
+}
+
+input TaskTotalSearchRequest {
+  criteria: [TaskSearchCriteria]
+}
+
+type TaskResponse {
+  task: [Task]
+  pageInfo: PageInfo!
+}
+
+extend type Query {
+  listTask(request: TaskSearchRequest): TaskResponse
+  totalTask(request: TaskTotalSearchRequest): Int
+}

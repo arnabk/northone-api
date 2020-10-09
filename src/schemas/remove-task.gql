@@ -1,0 +1,7 @@
+input RemoveTaskRequest {
+  id: ID!
+}
+
+extend type Mutation {
+  removeTask(request: RemoveTaskRequest): Boolean
+}

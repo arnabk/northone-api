@@ -1,0 +1,16 @@
+input UpdateTaskRequest {
+  id: ID!
+  user: String!
+  email: String!
+  title: String!
+  description: String!
+  "Due date in ISO format"
+  dueDate: DateTime!
+  "List of categories"
+  category: [String]
+  status: Status!
+}
+
+extend type Mutation {
+  updateTask(request: UpdateTaskRequest): Task
+}

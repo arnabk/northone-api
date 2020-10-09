@@ -1,0 +1,47 @@
+config:
+  target: "http://localhost:3000"
+  # http:
+  #   timeout: 10
+  ensure:
+    maxErrorRate: 1
+  defaults:
+    headers:
+      accept: "*/*"
+      cache-control: "no-cache"
+      content-type: "application/json"
+      pragma: "no-cache"
+  processor: "./data-gen.js"
+  phases:
+    # - duration: 300
+    #   arrivalRate: 5
+    #   name: Warm up
+    - duration: 5
+      arrivalRate: 5
+      rampTo: 1000
+      name: Ramp up load
+    # - duration: 300
+    #   arrivalRate: 50
+    #   name: Sustained load
+scenarios:
+  - name: "Add task"
+    flow:
+      - function: "generateTask"
+      - post:
+          url: "/graphql"
+          json:
+            operationName: "addTask"
+            variables: "{{ data }}"
+            query: "mutation addTask($request: AddTaskRequest!) {\n  addTask(request: $request) {\n    id\n  }\n}\n"
+            expect:
+              - statusCode: 200
+  - name: "Add sub-task"
+    flow:
+      - function: "generateSubTask"
+      - post:
+          url: "/graphql"
+          json:
+            operationName: "addSubTask"
+            variables: "{{ data }}"
+            query: "mutation addSubTask($request: AddSubTaskRequest!) {\n  addSubTask(request: $request) {\n    id\n  }\n}\n"
+            expect:
+              - statusCode: 200
