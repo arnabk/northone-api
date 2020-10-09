@@ -1,5 +1,5 @@
 config:
-  target: "http://localhost:3000"
+  target: "http://198.74.58.229:3000"
   # http:
   #   timeout: 10
   ensure:

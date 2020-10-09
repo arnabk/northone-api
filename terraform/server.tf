@@ -41,7 +41,7 @@ resource "null_resource" "update_instance" {
       "yarn",
       "yarn build",
       "cd build",
-      "pm2 stop",
+      "pm2 stop northone-api",
       "pm2 start pm2.yaml && pm2 save"
     ]
   }
