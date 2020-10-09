@@ -17,7 +17,7 @@ GraphQL project
     docker
     docker-compose
 
-# Project details
+## Project details
 
 - This project uses [Github actions](https://github.com/arnabk/northone-api/actions)
 - A copy of the application is already deployed [here](http://198.74.58.229:3000/graphql) using [terraform](./terraform). This is a GraphQL playground.
@@ -34,6 +34,13 @@ GraphQL project
   - `listSubTask` - Pulls paginated sub-task list. Supports multiple criterias with sorting
 - [Artillery](./artillery) can be used to generate random data
 - `yarn start` will start development server, however it expects a mongo instance running locally with port `27017` and host name `mongo` point to `localhost`
+
+## Code structure
+
+- [schemas](./src/schemas) has all the GQL schemas used in this project
+- [resolvers](./src/resolvers) has all the resolvers corresponding to the schemas used
+- [log](./src/log) - The project is using winston framework for logging
+- [data-sources] - Mongo/Mongoose data models and Apollo GraphQL data sources
 
 ## Enhancement consideration for future
 
