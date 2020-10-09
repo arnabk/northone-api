@@ -42,6 +42,32 @@ GraphQL project
 - [log](./src/log) - The project is using winston framework for logging
 - [data-sources] - Mongo/Mongoose data models and Apollo GraphQL data sources
 
+
+## Command to gets the project started
+
+Any one of the following
+
+- Access deployed env [here](http://198.74.58.229:3000/graphql)
+- Use docker compose
+
+        docker-compose build
+        docker-compose up
+
+        # The project will be running at http://localhost:3000/graphql
+
+- Use local env
+
+        docker run -d -p 27017:27017 mongo
+
+        # Edit /etc/hosts and add following line
+        127.0.0.1 mongo
+
+        # From project directory
+        yarn install
+        yarn start
+
+        # The project will be running at http://localhost:3000/graphql
+
 ## Enhancement consideration for future
 
 - Sharing a list
