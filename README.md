@@ -40,14 +40,14 @@ GraphQL project
 - [schemas](./src/schemas) has all the GQL schemas used in this project
 - [resolvers](./src/resolvers) has all the resolvers corresponding to the schemas used
 - [log](./src/log) - The project is using winston framework for logging
-- [data-sources] - Mongo/Mongoose data models and Apollo GraphQL data sources
+- [data-sources](./src/data-sources) - Mongo/Mongoose data models and Apollo GraphQL data sources
 
 
 ## Command to gets the project started
 
-Any one of the following
+Any one of the following methods could be used to start using the application
 
-- Access deployed env [here](http://198.74.58.229:3000/graphql)
+- Access deployed env [here](http://198.74.58.229:3000/graphql). Already have some seed data to get started
 - Use docker compose
 
         docker-compose build
